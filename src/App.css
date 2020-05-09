@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+.main-page{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./img/desk.jpg);
+  background-size: cover;
+  background-repeat:no-repeat;
+}
+
+.lower-half{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my-followers{
+  color: white;
+}
+.follower-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+justify-content: center;
+}
+
+.followers{
+  display:flex;
+  height: 8rem;
+  width: auto;
+  padding: 3px;
+}
+
+.user-card{
+  box-shadow: 0px 30px 1000px -100px black;
+  padding: 1rem;
+  background-color: white;
+}
+
+.user-name{
+  display:flex;
+  justify-content: center;
+}
+.avatar{
+  width: auto;
+  height: 140px;
+  /* padding: 3rem; */
+}
+
+.information{ 
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-left: 1rem;
+}

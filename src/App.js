@@ -7,7 +7,14 @@ import './App.css';
 class App extends React.Component{
   state={
     card: [],
-    followersData: [],
+    followers: [],
+  }
+
+  filter = (query) => {
+      this.setState({
+        ...this.state, 
+        followers: query
+      })
   }
 
   componentDidMount(){
@@ -19,21 +26,18 @@ class App extends React.Component{
 
     fetch("https://api.github.com/users/jasonbringle/followers")
     .then(res => res.json())
-    // .then(res => console.log(res))
-    .then(res => this.setState({followersData: res}))
+    // .then(res => console.log("from fetch",res))
+    .then(res => this.setState({followers: res}))
     .catch(err => console.log('error', err))
   }
 
-    
-  
   render(){
     return (
-      <div className="App">
-        <Search />
-        <header className="App-header">
-          <User me={this.state.card}/>
-          <Followers  followersData={this.state.followersData}/>
-        </header>
+      <div className='main-page'>
+        <Search setFollowers={this.filter} followersData={this.state.followers} />
+        <User me={this.state.card}/>
+        <Followers  followersData={this.state.followers}/>
+        
       </div>
     );
   }
