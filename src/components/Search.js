@@ -1,12 +1,26 @@
 import React from 'react'
 
-const Search = (props) => {
+class Search extends React.Component{ 
+    constructor(props){
+        super(props);
+        this.state= {
+            userSearch: '',
+            results: ''
+        }
+    }
 
-    return(
-        <div>
-            <input type='text' placeholder='Search'/>
+    handleChanges = e => {
+        e.preventDefault();
+        this.setState({...this.state, userSeach: e.target.value})
+    }
+
+    render(){
+        return (
+        <form>
+            <input onChange={this.handleChanges} value={this.state.userSearch} type='text' placeholder='Search'/>
             <button>Search Now</button>
-        </div>
-    )
+        </form>
+        )
+    }
 }
 export default Search;

@@ -7,7 +7,7 @@ import './App.css';
 class App extends React.Component{
   state={
     card: [],
-    followers: [],
+    followersData: [],
   }
 
   componentDidMount(){
@@ -19,7 +19,8 @@ class App extends React.Component{
 
     fetch("https://api.github.com/users/jasonbringle/followers")
     .then(res => res.json())
-    .then(res => this.setState({followers: res}))
+    // .then(res => console.log(res))
+    .then(res => this.setState({followersData: res}))
     .catch(err => console.log('error', err))
   }
 
@@ -31,7 +32,7 @@ class App extends React.Component{
         <Search />
         <header className="App-header">
           <User me={this.state.card}/>
-          <Followers />
+          <Followers  followersData={this.state.followersData}/>
         </header>
       </div>
     );
